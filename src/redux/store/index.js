@@ -1,12 +1,18 @@
 // questo file si occuperà di creare il Redux Store all'avvio dell'applicazione
 
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import mainReducer from "../reducers";
+import companySearchReducers from "../reducers/companySearchReducers";
+import searchReducers from "../reducers/searchReducers";
 
-// configureStore ha bisogno della struttura del nostro store/stato globale come parametro principale(quindi un reducer)
+const rootReducers = combineReducers({
+  favourites: mainReducer,
+  search: searchReducers,
+  companySearch: companySearchReducers
+});
+
 const store = configureStore({
-  // reducer
-  reducer: mainReducer
+  reducer: rootReducers
 });
 
 export default store;
