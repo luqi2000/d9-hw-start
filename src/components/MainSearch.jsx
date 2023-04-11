@@ -13,7 +13,10 @@ const MainSearch = () => {
   const handleChange = e => {
     setQuery(e.target.value);
   };
-
+  const handleSubmit = e => {
+    e.preventDefault();
+    dispatch(searchAction(query));
+  };
   return (
     <Container>
       <Row>
@@ -21,7 +24,7 @@ const MainSearch = () => {
           <h1>Remote Jobs Search</h1>
         </Col>
         <Col xs={10} className="mx-auto">
-          <Form onSubmit={searchAction(dispatch, query)}>
+          <Form onSubmit={handleSubmit}>
             <Form.Control type="search" value={query} onChange={handleChange} placeholder="type and press Enter" />
           </Form>
         </Col>

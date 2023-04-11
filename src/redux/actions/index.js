@@ -9,10 +9,8 @@ export const SEARCH = "SEARCH";
 const baseEndpoint = "https://strive-benchmark.herokuapp.com/api/jobs?search=";
 const baseEndpoint2 = "https://strive-benchmark.herokuapp.com/api/jobs?company=";
 
-export const searchAction = (dispatch, query) => {
-  return async e => {
-    e.preventDefault();
-
+export const searchAction = query => {
+  return async dispatch => {
     try {
       const response = await fetch(baseEndpoint + query + "&limit=20");
       if (response.ok) {

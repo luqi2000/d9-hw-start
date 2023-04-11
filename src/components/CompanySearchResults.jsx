@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { searchCompany } from "../redux/actions";
 
 const CompanySearchResults = () => {
-  const jobs = useSelector(state => state.companySearch.content);
+  const jobs = useSelector(state => state.search.content);
   searchCompany();
 
   return (
